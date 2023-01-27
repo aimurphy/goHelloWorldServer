@@ -39,7 +39,7 @@ pipeline:
                   name: Go Build
                   identifier: Go_Build
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     image: golang:1.15
                     command: |-
                       set +e
@@ -55,7 +55,7 @@ pipeline:
                   name: print content
                   identifier: print_content
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     image: alpine
                     command: ls -a
                     privileged: false
@@ -64,7 +64,7 @@ pipeline:
                   name: Build and push image to DockerHub
                   identifier: Build_and_push_image_to_DockerHub
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     repo: bluebbb/godemo
                     tags:
                       - latest
@@ -94,7 +94,7 @@ pipeline:
                   name: test connection to server
                   identifier: test_connection_to_server
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     image: curlimages/curl:7.69.1
                     command: |-
                       sleep 5
@@ -105,7 +105,7 @@ pipeline:
                   name: echo
                   identifier: echo
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     image: alpine
                     command: echo "hello"
                     privileged: false
@@ -114,7 +114,7 @@ pipeline:
               name: Run Hello World Server
               type: Service
               spec:
-                connectorRef: account.nofar_dockerhub
+                connectorRef: aimciquickstartdocker
                 image: bluebbb/godemo:<+pipeline.sequenceId>
           infrastructure:
             useFromStage: Test_Build_and_Push
