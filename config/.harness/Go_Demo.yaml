@@ -30,7 +30,7 @@ pipeline:
                       type: JUnit
                       spec:
                         paths:
-                          - "*.xml"
+                          - "TEST-*.xml"
                   when:
                     stageStatus: Success
                   failureStrategies: []
