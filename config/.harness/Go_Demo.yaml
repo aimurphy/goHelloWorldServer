@@ -18,7 +18,7 @@ pipeline:
                   name: Run Unit Tests
                   identifier: Run_Unit_Tests
                   spec:
-                    connectorRef: account.nofar_dockerhub
+                    connectorRef: aimciquickstartdocker
                     image: golang:1.15
                     command: |-
                       set +e
